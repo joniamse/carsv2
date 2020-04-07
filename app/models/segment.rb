@@ -1,4 +1,4 @@
-class Brand < ApplicationRecord
+class Segment < ApplicationRecord
 	has_many :cars
 
 	validates :name, presence: true
