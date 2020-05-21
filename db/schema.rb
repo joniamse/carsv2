@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_230922) do
-
-  create_table "accesories_cars", force: :cascade do |t|
-    t.integer "car_id", null: false
-    t.integer "accesory_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["accesory_id"], name: "index_accesories_cars_on_accesory_id"
-    t.index ["car_id"], name: "index_accesories_cars_on_car_id"
-  end
+ActiveRecord::Schema.define(version: 2020_05_19_173124) do
 
   create_table "accessories", force: :cascade do |t|
     t.string "name"
@@ -58,6 +49,12 @@ ActiveRecord::Schema.define(version: 2020_04_06_230922) do
     t.index ["structure_id"], name: "index_cars_on_structure_id"
   end
 
+  create_table "fuel_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "segments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -70,8 +67,6 @@ ActiveRecord::Schema.define(version: 2020_04_06_230922) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "accesories_cars", "accesories"
-  add_foreign_key "accesories_cars", "cars"
   add_foreign_key "accessories_cars", "accessories"
   add_foreign_key "accessories_cars", "cars"
   add_foreign_key "cars", "brands"
